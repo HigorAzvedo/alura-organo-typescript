@@ -2,14 +2,16 @@ import { ReactElement } from 'react'
 import './Botao.css'
 import React from 'react'
 
-interface BotaoProps {
+interface BotaoProps extends Omit<HTMLButtonElement, 'children'> {
     children: ReactElement | string
+    cor?: string
 }
 
-const Botao = (props: BotaoProps) => {
+const Botao : React.FC<BotaoProps> = ( {children, ...rest } ) => {
+
     return (
-    <button className='botao'>
-        {props.children}
+    <button className='botao' >
+        {children}
     </button>)
 }
 
